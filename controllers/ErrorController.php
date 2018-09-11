@@ -34,6 +34,8 @@ class ErrorController extends Controller
 
             // TODO 写入到数据库
         }
-        return '错误页面<br>错误信息:' . $err_msg;
+
+        $this->layout = false;
+        return $this->render('error', compact('err_msg'));
     }
 }
