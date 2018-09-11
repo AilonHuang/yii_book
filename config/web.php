@@ -43,7 +43,7 @@ $config = [
             ],
         ],
         'db' => $db,
-        'urlManager' => require __DIR__ . 'router.php',
+        'urlManager' => require __DIR__ . '/router.php',
     ],
     'params' => $params,
 ];
