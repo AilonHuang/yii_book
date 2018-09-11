@@ -21,7 +21,7 @@ class ErrorController extends Controller
             $log = new FileTarget();
             $log->logFile = \Yii::$app->getRuntimePath() . '/logs/error.log';
 
-            $err_msg = $message . "[File:{$file}][line:{$line}][code:{$code}][url:{$_SERVER['REQUEST_URI']}[POST_DATA:". http_build_query($_POST) ."]";
+            $err_msg = $message . "[File:{$file}][line:{$line}][code:{$code}][url:{$_SERVER['REQUEST_URI']}][POST_DATA:". http_build_query($_POST) ."]";
 
             $log->messages[] = [
                 $err_msg,
