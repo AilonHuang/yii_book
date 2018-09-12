@@ -26,4 +26,11 @@ class MemberController extends Controller
         $this->layout = false;
         return $this->render('info');
     }
+
+    // 会员评论列表
+    public function actionComment()
+    {
+        $this->layout = false;
+        return $this->render('comment');
+    }
 }
