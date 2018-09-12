@@ -33,4 +33,18 @@ class BookController extends Controller
         $this->layout = false;
         return $this->render('images');
     }
+
+    // 图书分类列表
+    public function actionCat()
+    {
+        $this->layout = false;
+        return $this->render('cat');
+    }
+
+    // 图书分类列表
+    public function actionCat_set()
+    {
+        $this->layout = false;
+        return $this->render('cat_set');
+    }
 }
