@@ -19,4 +19,11 @@ class ProductController extends Controller
         $this->layout = false;
         return $this->render('info');
     }
+
+    // 用户下订单
+    public function actionOrder()
+    {
+        $this->layout = false;
+        return $this->render('order');
+    }
 }
