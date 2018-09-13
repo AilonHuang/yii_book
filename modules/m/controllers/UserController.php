@@ -54,4 +54,18 @@ class UserController extends Controller
         $this->layout = false;
         return $this->render('fav');
     }
+
+    // 我的评论列表
+    public function actionComment()
+    {
+        $this->layout = false;
+        return $this->render('comment');
+    }
+
+    // 我要评论
+    public function actionComment_set()
+    {
+        $this->layout = false;
+        return $this->render('comment_set');
+    }
 }
