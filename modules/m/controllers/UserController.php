@@ -26,4 +26,32 @@ class UserController extends Controller
         $this->layout = false;
         return $this->render('order');
     }
+
+    // 我的页面
+    public function actionIndex()
+    {
+        $this->layout = false;
+        return $this->render('index');
+    }
+
+    // 我的地址列表
+    public function actionAddress()
+    {
+        $this->layout = false;
+        return $this->render('address');
+    }
+
+    // 添加或编辑收货地址
+    public function actionAddress_set()
+    {
+        $this->layout = false;
+        return $this->render('address_set');
+    }
+
+    // 我的收藏
+    public function actionFav()
+    {
+        $this->layout = false;
+        return $this->render('fav');
+    }
 }
