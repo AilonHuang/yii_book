@@ -35,7 +35,6 @@ class ErrorController extends Controller
             // TODO 写入到数据库
         }
 
-        $this->layout = false;
         return $this->render('error', compact('err_msg'));
     }
 }
