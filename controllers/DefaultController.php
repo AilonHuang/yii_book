@@ -2,9 +2,9 @@
 
 namespace app\controllers;
 
-use yii\web\Controller;
+use app\common\component\BaseWebController;
 
-class DefaultController extends Controller
+class DefaultController extends BaseWebController
 {
     public function actionIndex()
     {
