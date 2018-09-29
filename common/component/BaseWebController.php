@@ -23,7 +23,7 @@ class BaseWebController extends Controller
     // 获取 http post 参数
     public function post($key, $default_val = '')
     {
-        return \Yii::$app->request->get($key, $default_val);
+        return \Yii::$app->request->post($key, $default_val);
     }
 
     // 设置 Cookie 值
@@ -63,5 +63,10 @@ class BaseWebController extends Controller
             'data' => $data,
             'req_id' => uniqid()
         ], JSON_UNESCAPED_UNICODE);
+    }
+
+    // 统一 js 提醒
+    public function renderJs($msg, $url) {
+        return $this->renderPartial('@app/views/common/js', ['msg' => $msg, 'url' => $url]);
     }
 }
