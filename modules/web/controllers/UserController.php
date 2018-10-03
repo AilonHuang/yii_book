@@ -33,9 +33,7 @@ class UserController extends BaseController
             return $this->renderJs('请输入正确的用户名和密码', UrlService::buildWebUrl('/user/login'));
         }
         // 验证密码
-        // 加密算法 md5(login_pad + md5(login_salt))
-        $auth_pwd = md5($login_pwd . md5($user_info['login_salt']));
-        if ($auth_pwd != $user_info['login_pwd']) {
+        if (!$user_info->verifyPassword($login_pwd)) {
             return $this->renderJs('请输入正确的用户名和密码', UrlService::buildWebUrl('/user/login'));
         }
 
@@ -92,22 +90,21 @@ class UserController extends BaseController
         }
 
         if ($old_password == $new_password) {
-            return  $this->renderJson([], '请重新输入, 新密码和原密码不能一样', -1);
+            return $this->renderJson([], '请重新输入, 新密码和原密码不能一样', -1);
         }
 
         // 判断原密码是否证确
         $user_info = $this->current_user;
-        $auth_pwd = md5($old_password . md5($user_info['login_salt']));
-        if ($auth_pwd != $user_info['login_pwd']) {
+        if (!$user_info->verifyPassword($old_password)) {
             return $this->renderJson([], '原密码不正确', -1);
         }
 
-        $user_info->login_pwd = md5($new_password . md5($user_info['login_salt']));
+        $user_info->setPassword($new_password);
         $user_info->update(0);
 
         $this->setLoginStatus($user_info);
 
-        return $this->renderJson([], '重置密码成功');
+        return $this->renderJson([], '修改密码成功');
 
     }
 
