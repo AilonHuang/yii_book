@@ -1,3 +1,6 @@
+<?php
+    Yii::$app->getView()->registerJsFile('/js/web/user/edit.js', ['depends' => app\assets\WebAsset::Class])
+?>
 <div class="row  border-bottom">
     <div class="col-lg-12">
         <div class="tab_title">
@@ -20,7 +23,7 @@
                 <label class="col-lg-2 control-label">手机:</label>
                 <div class="col-lg-10">
                     <input type="text" name="mobile" class="form-control" placeholder="请输入手机~~" readonly
-                           value="11012345679">
+                           value="<?=$user_info['mobile']?>">
                 </div>
             </div>
             <div class="hr-line-dashed"></div>
@@ -29,7 +32,7 @@
                 <label class="col-lg-2 control-label">姓名:</label>
                 <div class="col-lg-10">
                     <input type="text" name="nickname" class="form-control" placeholder="请输入姓名~~"
-                           value="编程浪子郭大爷">
+                           value="<?=$user_info['nickname']?>">
                 </div>
             </div>
             <div class="hr-line-dashed"></div>
@@ -38,7 +41,7 @@
                 <label class="col-lg-2 control-label">邮箱:</label>
                 <div class="col-lg-10">
                     <input type="text" name="email" class="form-control" placeholder="请输入邮箱~~"
-                           value="apanly@126.com">
+                           value="<?=$user_info['email']?>">
                 </div>
             </div>
             <div class="hr-line-dashed"></div>

@@ -33,7 +33,6 @@ class ErrorController extends BaseWebController
 
             $log->export();
 
-            // TODO 写入到数据库
             AppLogService::addErrorLog(\Yii::$app->id, $err_msg);
         }
 
